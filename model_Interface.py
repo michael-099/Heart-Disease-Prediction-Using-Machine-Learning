@@ -13,7 +13,17 @@ import pickle
 #     model = joblib.load(model_filename)
 #     print(f"Model loaded from {model_filename}")
 # model = pickle.load(open('C:/Users/micha/OneDrive/Documents/2017 codes/ML work space/Heart Disease Prediction Using Machine Learning/heart_disease_logistic_regression_model.pkl', 'rb'))
-model = joblib.load('heart_disease_logistic_regression_model.pkl')
+# model = joblib.load('heart_disease_logistic_regression_model.pkl')
+# import pickle
+
+# Assume 'model' is your trained model
+
+
+# Load the trained model from file
+with open('heart_disease_logistic_regression_model.pkl', 'rb') as model_file:
+    model = pickle.load(model_file)
+
+
 
 def predict_heart_disease():
    
