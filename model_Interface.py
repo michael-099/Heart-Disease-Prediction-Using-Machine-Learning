@@ -1,8 +1,20 @@
 import pandas as pd
 import joblib
 
-# Load the trained model
-model = joblib.load('Heart_Disease_logistic_regression_model.pkl')
+
+
+
+use_default = input("Do you want to use the default model? (y/n): ")
+
+if use_default.lower() == 'y':
+   
+    model = joblib.load('Heart_Disease_logistic_regression_model.pkl')
+    print("Using the default model: Heart_Disease_logistic_regression_model.pkl")
+else:
+    model_filename = input("Enter the name of the model file to load (e.g., 'model.pkl'): ")
+    model = joblib.load(model_filename)
+    print(f"Model loaded from {model_filename}")
+
 
 def predict_heart_disease():
    
