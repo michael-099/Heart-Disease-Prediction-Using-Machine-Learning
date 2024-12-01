@@ -1,35 +1,10 @@
 import pandas as pd
 import joblib
 import streamlit as st 
-import pickle
 
-
-# use_default = input("Do you want to use the default model? (y/n): ")
-
-# if use_default.lower() == 'y':
-#     print("Using the default model: Heart_Disease_logistic_regression_model.pkl")
-# else:
-#     model_filename = input("Enter the name of the model file to load (e.g., 'model.pkl'): ")
-#     model = joblib.load(model_filename)
-#     print(f"Model loaded from {model_filename}")
-# model = pickle.load(open('C:/Users/micha/OneDrive/Documents/2017 codes/ML work space/Heart Disease Prediction Using Machine Learning/heart_disease_logistic_regression_model.pkl', 'rb'))
-# model = joblib.load('heart_disease_logistic_regression_model.pkl')
-# import pickle
-
-# Assume 'model' is your trained model
-
-
-# Load the trained model from file
-with open('heart_disease_logistic_regression_model.pkl', 'rb') as model_file:
-    model = pickle.load(model_file)
-
-
+model = joblib.load('heart_disease_logistic_regression_model.pkl')
 
 def predict_heart_disease():
-   
-
-
-# Streamlit Inputs
     st.title("Heart Disease Prediction Input Form")
 
     age = st.number_input("Enter age (in years): ", min_value=1, max_value=120, step=1)
@@ -58,7 +33,6 @@ def predict_heart_disease():
         format_func=lambda x: {1: "Up", 2: "Flat", 3: "Down"}[x]
     )
 
-    # Optionally, you can display all inputs as a dictionary:
     input_data = {
         "Age": age,
         "Sex": sex,
@@ -76,7 +50,6 @@ def predict_heart_disease():
     st.write("User Inputs:")
     st.json(input_data)
 
-  
     input_data = pd.DataFrame([[age, sex, chest_pain_type, resting_bp, cholesterol, fasting_bs, 
                                 resting_ecg, max_hr, exercise_angina, oldpeak, st_slope]], 
                               columns=['Age', 'Sex', 'ChestPainType', 'RestingBP', 'Cholesterol', 
@@ -86,19 +59,14 @@ def predict_heart_disease():
     input_data_array = input_data.values
     prediction = model.predict(input_data_array)
 
-    # Assuming 'prediction' contains the model's output (0 or 1)
-    
-
-    prediction = model.predict(input_data)
-
-    # Streamlit Button for prediction
     if st.button("Predict Heart Disease"):
-        if prediction[0] == 1:
+        if prediction[0] == 1:  # Corrected to use prediction[0]
             st.write("🚨 **The model predicts: Heart Disease** 🚨")
             st.write("Based on the input data, the model has identified a high likelihood of heart disease. Please consult a healthcare professional for further evaluation and testing.")
             st.write("The model suggests immediate action or lifestyle changes to mitigate potential risks.")
         else:
             st.write("✅ **The model predicts: No Heart Disease** ✅")
             st.write("Based on the input data, the model indicates a low likelihood of heart disease. However, maintaining a healthy lifestyle and regular check-ups are recommended to stay healthy.")
+
 if __name__ == '__main__':
     predict_heart_disease()
