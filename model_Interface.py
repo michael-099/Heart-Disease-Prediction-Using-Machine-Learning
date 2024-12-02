@@ -2,7 +2,7 @@ import pandas as pd
 import joblib
 import streamlit as st 
 
-model = joblib.load('heart_disease_logistic_regression_model.pkl')
+model = joblib.load('Heart_Disease_logistic_regression_model.pkl')
 
 def predict_heart_disease():
     st.title("Heart Disease Prediction Input Form")
