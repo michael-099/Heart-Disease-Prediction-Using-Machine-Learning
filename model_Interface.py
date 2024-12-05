@@ -60,7 +60,7 @@ def predict_heart_disease():
     prediction = model.predict(input_data_array)
 
     if st.button("Predict Heart Disease"):
-        if prediction[0] == 1:  # Corrected to use prediction[0]
+        if prediction[0] == 1:  
             st.write("🚨 **The model predicts: Heart Disease** 🚨")
             st.write("Based on the input data, the model has identified a high likelihood of heart disease. Please consult a healthcare professional for further evaluation and testing.")
             st.write("The model suggests immediate action or lifestyle changes to mitigate potential risks.")
