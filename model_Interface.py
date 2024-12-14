@@ -54,11 +54,11 @@ def predict_heart_disease():
             ---
             ### ⚠ Important Disclaimer  
             This application uses a machine learning model to provide predictions based on the data you input.  
-            
+
             - **Not 100% Reliable:** The model is not guaranteed to be accurate and may produce false positives or negatives.  
             - **Not for Medical Use:** This tool is for educational and informational purposes only and is **not a substitute for professional medical advice, diagnosis, or treatment**.  
             - **Seek Professional Advice:** Always consult a qualified healthcare provider for medical concerns or decisions.  
-            
+
             **Use this tool responsibly and at your own discretion.**
             ---
             """
@@ -85,6 +85,7 @@ def predict_heart_disease():
         Based on the input data provided, the model predicts that the individual is unlikely to have heart disease.  
         Maintain a healthy lifestyle and consult with a healthcare professional for regular check-ups.
         """
+                
                 )
 
         except Exception as e:
