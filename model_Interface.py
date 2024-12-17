@@ -85,7 +85,7 @@ def predict_heart_disease():
         Based on the input data provided, the model predicts that the individual is unlikely to have heart disease.  
         Maintain a healthy lifestyle and consult with a healthcare professional for regular check-ups.
         """
-                
+             
                 )
 
         except Exception as e:
